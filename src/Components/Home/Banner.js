@@ -9,13 +9,13 @@ const Banner = () => {
       <div class="carousel" style={{height: '550px'}}>
         <div id="item1" class="carousel-item w-full">
           <img
-            src={banner1}
+            src={banner2}
             class="w-full" alt=""
           />
         </div>
         <div id="item2" class="carousel-item w-full">
           <img
-            src={banner2}
+            src={banner1}
             class="w-full" alt=""
           />
         </div>

@@ -1,0 +1,99 @@
+[
+    {
+        "name": "Blower",
+        "price": "30",
+        "description": "Voltage:220-240V~50/60Hz Input power:800W No-load speed:0-15000rpm Max blowing rate:0-4.5m3/min Variable speed With 1pcs dust bag With 1pcs flexible tube With 2pcs suction nozzles Packed by color box",
+        "minimum-order-quantity": 100,
+        "available-quantity": 1000,
+        "img": "https://i.ibb.co/fnDXpwY/Blower.jpg"
+    },
+    {
+        "name": "Combination Pliers",
+        "price": "39",
+        "description": "Size 8/200mm Polish and anti-rust oil Two color handle Packed by sliding card",
+        "minimum-order-quantity": 800,
+        "available-quantity": 9000,
+        "img": "https://i.ibb.co/0CkLRfS/plus.jpg"
+    },
+    {
+        "name": "Mixer",
+        "price": "340",
+        "description": "Voltage:220-240V~50/60Hz Input power:1400W No-load speed:180-480rpm/300-750rpm Mixing pad thread:M14 Aluminum gear box With 1pcs LED light With 1pcs mixing pad Packed by color box",
+        "minimum-order-quantity": 60,
+        "available-quantity": 1000,
+        "img": "https://i.ibb.co/MMVwbSY/mixer.jpg"
+    },
+    {
+        "name": "Spanner Set",
+        "price": "500",
+        "description": "8pcs combination spanner set Size:6-19mm 6mm,8mm,10mm,12mm,14mm,15mm,17mm,19mm Fine polished Packed by plastic hanger",
+        "minimum-order-quantity": 400,
+        "available-quantity": 5000,
+        "img": "https://i.ibb.co/TkMTqtS/lngset.jpg"
+    },
+    {
+        "name": "Ratchet Spanner Set",
+        "price": "330",
+        "description": "6pcs Ratchet Spanner Set Size:19-32mm 19mm,22mm,24mm,27mm,30mm,32mm Fine polished ,CR-V Packed by canvas bag",
+        "minimum-order-quantity": 1000,
+        "available-quantity": 10000,
+        "img": "https://i.ibb.co/RYg9Vj0/lng.jpg"
+    },
+    {
+        "name": "Jack Hammer",
+        "price": "458",
+        "description": "Voltage:220-240V~50/60Hz Input power:650W No-load speed:0-1700rpm Impact rate:0-5500bpm Impact energy:1.7J Max.drilling capacity: Concrete:22mm Steel:10mm Wood:25mm SDS plus chuck system With 3 SDS-PLUS drills Packed by BMC",
+        "minimum-order-quantity": 50,
+        "available-quantity": 2000,
+        "img": "https://i.ibb.co/ypSVZz8/jackhammer.jpg"
+    },
+    {
+        "name": "Jack",
+        "price": "600",
+        "description": "10Ton With safety valve Min. height: 230mm Max. height: 460mm Travel:230mm Net weight?5.8kg Packed by color box",
+        "minimum-order-quantity": 300,
+        "available-quantity": 8000,
+        "img": "https://i.ibb.co/MfVKJZx/jack.jpg"
+    },
+    {
+        "name": "Grinder",
+        "price": "269",
+        "description": "Voltage:220-240V~50/60Hz Input power:900W No-load speed:12000rpm Disc diameter:100mm Spindle thread:M10 With 1pcs auxiliary handle Packed by color box",
+        "minimum-order-quantity": 100,
+        "available-quantity": 5000,
+        "img": "https://i.ibb.co/8PqXgtb/grainder.jpg"
+    },
+    {
+        "name": "DC Fan",
+        "price": "196",
+        "description": "DC Voltage:20V AC Voltage:220-240V~50/60HZ Speed settings:2 Dimensions:11 Tilt adjustment:0-360° Battery and charger not included Packed by color box",
+        "minimum-order-quantity": 800,
+        "available-quantity": 10000,
+        "img": "https://i.ibb.co/n8v1LHv/fan.jpg"
+    },
+    {
+        "name": "Drill Machine",
+        "price": "300",
+        "description": "Voltage:220-240V~50/60Hz Input power:500W No-load speed:0-3300rpm Chuck capacity:1.0-10mm Variable speed Forward/Reverse switch Packed by color box",
+        "minimum-order-quantity": 50,
+        "available-quantity": 500,
+        "img": "https://i.ibb.co/rH4p6pq/drill.jpg"
+    },
+    {
+        "name": "Cutter",
+        "price": "15",
+        "description": "Blade Size:18mmx100mm Length:185mm With 6 pcs SK5 blades With blade locking bolt With flat push button Aluminum body Net weight:190g Packed by double blister",
+        "minimum-order-quantity": 1000,
+        "available-quantity": 10000,
+        "img": "https://i.ibb.co/SRGGwG3/cutter.jpg"
+    },
+    {
+        "name": "Breaker",
+        "price": "90",
+        "description": "Voltage:220-240V~50/60Hz Input power:1500W Impact rate:1000-1900bmp Impact force:6-25J Anti-vribration system Auto-stop carbon brushes Constant electronics power Chisel-locking system SDS-MAX chuck system 10Kgs demolation breaker With 2pcs chisels Packed by BMC",
+        "minimum-order-quantity": 50,
+        "available-quantity": 500,
+        "img": "https://i.ibb.co/1vrfSwT/breaker.jpg"
+    }
+    
+]
