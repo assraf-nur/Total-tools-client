@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { FcGoogle } from "react-icons/fc";
 import {
   useSignInWithEmailAndPassword,
@@ -19,12 +19,14 @@ const Login = () => {
   } = useForm();
 
   let signInError;
-  const navigate = useNavigate();
-  const location = useLocation();
-  let from = location.state?.from?.pathname || "/";
-  navigate(from, { replace: true });
+
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
+
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  let from = location.state?.from?.pathname || "/";
 
   if (error || gError) {
     signInError = (
@@ -34,8 +36,14 @@ const Login = () => {
     );
   }
 
-  if(loading || gLoading){
-      return <Loading></Loading>
+  useEffect(() => {
+    if (user || gUser) {
+      navigate(from, { replace: true });
+    }
+  }, [navigate, from, gUser, user]);
+
+  if (loading || gLoading) {
+    return <Loading></Loading>;
   }
 
   const onSubmit = (data) => {
@@ -133,7 +141,7 @@ const Login = () => {
             onClick={() => signInWithGoogle()}
             className="btn btn-dark text-white"
           >
-              <FcGoogle className="text-2xl mr-3"/>
+            <FcGoogle className="text-2xl mr-3" />
             Continue with Google
           </button>
         </div>

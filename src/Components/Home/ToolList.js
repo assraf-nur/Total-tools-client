@@ -1,7 +1,14 @@
 import React from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 const ToolList = ({ tool }) => {
-    const {name, img, price, description, moq, aq} = tool;
+    const {_id, name, img, price, description, moq, aq} = tool;
+
+    const navigate = useNavigate();
+    const handlePurchase = id =>{
+        navigate(`/purchase/${_id}`)
+    }
+
   return (
     <div className="shadow-xl rounded-2xl border-2 relative">
       <figure>
@@ -18,7 +25,7 @@ const ToolList = ({ tool }) => {
         <p className="text-xl">Price Per Unit: <span className="text-primary">{price} $</span></p>
 
         <div class="card-actions">
-          <button class="btn btn-primary mx-auto w-12/12 text-white absolute inset-x-0 bottom-0 h-12 mt-12">Place Order</button>
+          <button onClick={() => handlePurchase(_id)} class="btn btn-primary mx-auto w-12/12 text-white absolute inset-x-0 bottom-0 h-12 mt-12">Place Order</button>
         </div>
       </div>
     </div>

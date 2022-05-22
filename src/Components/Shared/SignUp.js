@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
 import Loading from "./Loading";
+import { FcGoogle } from "react-icons/fc";
 
 const SignUp = () => {
   const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
@@ -42,12 +43,12 @@ const SignUp = () => {
     console.log("update done");
     //  navigate("/appoint");
   };
-  
+
   return (
     <div className="flex h-screen justify-center items-center">
       <div className="card w-96 bg-base-100 shadow-xl">
         <div className="card-body">
-          <h2 className="text-center text-2xl font-bold">Sign Up</h2>
+          <h2 className="text-center text-2xl font-bold text-primary">Sign Up</h2>
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="form-control w-full max-w-xs">
               <label className="label">
@@ -140,7 +141,7 @@ const SignUp = () => {
 
             {signInError}
             <input
-              className="btn w-full max-w-xs text-white"
+              className="btn w-full max-w-xs btn-primary text-white"
               type="submit"
               value="Sign Up"
             />
@@ -156,8 +157,9 @@ const SignUp = () => {
           <div className="divider">OR</div>
           <button
             onClick={() => signInWithGoogle()}
-            className="btn btn-outline"
+            className="btn btn-dark"
           >
+              <FcGoogle className="text-2xl mr-3"/>
             Continue with Google
           </button>
         </div>
