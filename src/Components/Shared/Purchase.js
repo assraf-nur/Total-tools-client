@@ -156,7 +156,8 @@ const Purchase = () => {
               />
               <input
                 type="submit"
-                placeholder="SUBMIT"
+                placeholder="Purchase"
+                value="Purchase"
                 className="btn text-white font bold btn-primary input-bordered mt-5 w-full max-w-xs"
               />
             </form>
