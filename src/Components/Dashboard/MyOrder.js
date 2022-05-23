@@ -22,7 +22,8 @@ const MyOrder = () => {
   }, [user]);
 
   return (
-    <div class="overflow-x-auto">
+    <div class="overflow-x-auto mt-8">
+        <h2 className="ml-5 text-2xl mb-3">Orders</h2>
       <table class="table w-full">
         {/* <!-- head --> */}
         <thead>

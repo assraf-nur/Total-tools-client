@@ -18,12 +18,12 @@ const AllUsers = () => {
   }
 
   return (
-    <div class="overflow-x-auto">
+    <div class="overflow-x-auto mt-5">
+        <h2 className="ml-5 text-2xl mb-3">All User</h2>
       <table class="table w-full">
         {/* <!-- head --> */}
         <thead>
           <tr>
-            <th>User Number</th>
             <th>Email</th>
             <th>Action</th>
             <th></th>
