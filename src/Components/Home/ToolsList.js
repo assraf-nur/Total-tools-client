@@ -5,7 +5,12 @@ import ToolList from "./ToolList";
 
 const ToolsList = () => {
   const { data: tools, isLoading } = useQuery(["tools"], () =>
-    fetch("http://localhost:5000/tools").then((res) => res.json())
+    fetch("http://localhost:5000/tools",{
+      method: 'GET',
+        headers: {
+            authorization: `Bearer ${localStorage.getItem('accessToken')}`
+        }
+    }).then((res) => res.json())
   );
 
   if (isLoading) {

@@ -1,10 +1,16 @@
 import React from "react";
 import { useQuery } from "react-query";
 import Loading from "../Shared/Loading";
+import UserList from "./UserList";
 
 const AllUsers = () => {
-  const { data: users, isLoading } = useQuery("users", () =>
-    fetch("http://localhost:5000/users").then((res) => res.json())
+  const { data: users, isLoading, refetch } = useQuery("users", () =>
+    fetch("http://localhost:5000/users",{
+        method: 'GET',
+        headers: {
+            authorization: `Bearer ${localStorage.getItem('accessToken')}`
+        }
+    }).then((res) => res.json())
   );
 
   if (isLoading) {
@@ -26,14 +32,7 @@ const AllUsers = () => {
         <tbody>
           {/* <!-- row 1 --> */}
           {
-              users.map((u, index) => (
-                <tr>
-                <th>{index+1}</th>
-                <td>{u.email}</td>
-                <td><button class="btn btn-xs btn-primary text-white">Make Admin</button></td>
-                <td><button class="btn btn-xs btn-error text-white">Remove User</button></td>
-              </tr>
-              ))
+              users.map(user => <UserList key={user._id} user={user} refetch={refetch}></UserList>)
           }
         </tbody>
       </table>
