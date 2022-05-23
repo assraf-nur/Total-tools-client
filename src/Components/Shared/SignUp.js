@@ -1,10 +1,15 @@
 import React from "react";
-import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from "react-firebase-hooks/auth";
+import {
+  useCreateUserWithEmailAndPassword,
+  useSignInWithGoogle,
+  useUpdateProfile,
+} from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
 import Loading from "./Loading";
 import { FcGoogle } from "react-icons/fc";
+import useToken from "../Hooks/useToken";
 
 const SignUp = () => {
   const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
@@ -17,14 +22,16 @@ const SignUp = () => {
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth);
 
-    const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+  const [updateProfile, updating, updateError] = useUpdateProfile(auth);
 
-    const navigate = useNavigate();
+  const [token] = useToken(user || gUser);
+
+  const navigate = useNavigate();
 
   let signInError;
 
   if (loading || gLoading || updating) {
-    return <Loading></Loading>
+    return <Loading></Loading>;
   }
 
   if (error || gError || updateError) {
@@ -36,7 +43,7 @@ const SignUp = () => {
       </p>
     );
   }
-  
+
   const onSubmit = async (data) => {
     await createUserWithEmailAndPassword(data.email, data.password);
     await updateProfile({ displayName: data.name });
@@ -48,7 +55,9 @@ const SignUp = () => {
     <div className="flex h-screen justify-center items-center">
       <div className="card w-96 bg-base-100 shadow-xl">
         <div className="card-body">
-          <h2 className="text-center text-2xl font-bold text-primary">Sign Up</h2>
+          <h2 className="text-center text-2xl font-bold text-primary">
+            Sign Up
+          </h2>
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="form-control w-full max-w-xs">
               <label className="label">
@@ -155,11 +164,8 @@ const SignUp = () => {
             </small>
           </p>
           <div className="divider">OR</div>
-          <button
-            onClick={() => signInWithGoogle()}
-            className="btn btn-dark"
-          >
-              <FcGoogle className="text-2xl mr-3"/>
+          <button onClick={() => signInWithGoogle()} className="btn btn-dark">
+            <FcGoogle className="text-2xl mr-3" />
             Continue with Google
           </button>
         </div>
