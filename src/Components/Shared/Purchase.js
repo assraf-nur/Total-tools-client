@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import {  useLocation, useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import auth from "../../firebase.init";
 
@@ -31,13 +31,14 @@ const Purchase = () => {
       alert("Please order more than minimum order quantity");
       return;
     }
-    if(tool.aq < quantity){
-        alert("Please give order below available unit");
-        return;
+    if (tool.aq < quantity) {
+      alert("Please give order below available unit");
+      return;
     }
 
     const order = {
       toolId: tool._id,
+      toolName: tool.name,
       userName: user.displayName,
       userEmail: user.email,
       userPhone: phone,
@@ -54,10 +55,10 @@ const Purchase = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-          console.log('here is data', data);
+        console.log("here is data", data);
         if (data.acknowledged) {
           toast.success(`${tool.name} is ordered`);
-        } 
+        }
         setTool(null);
         navigate(from, { replace: true });
       });
