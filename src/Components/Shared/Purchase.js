@@ -133,11 +133,13 @@ const Purchase = () => {
               <small className="font-bold">
                 Minimum Order: {tool.moq} Unit
               </small>
-              <small className="font-bold">Available:{tool.moq} Unit</small>
+              <small className="font-bold">Available:{tool.aq} Unit</small>
               <input
                 type="number"
                 name="quantity"
-                placeholder="Order quantity"
+                min={tool.moq}
+                max={tool.aq}
+                placeholder={tool.moq}
                 className="input input-bordered w-full max-w-xs"
               />
               <input
