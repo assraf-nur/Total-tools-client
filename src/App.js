@@ -2,9 +2,11 @@ import { Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
+import AddProducts from "./Components/Dashboard/AddProducts";
 import AddReview from "./Components/Dashboard/AddReview";
 import AllUsers from "./Components/Dashboard/AllUsers";
 import Dashboard from "./Components/Dashboard/Dashboard";
+import ManageTools from "./Components/Dashboard/ManageTools";
 import MyOrder from "./Components/Dashboard/MyOrder";
 import MyProfile from "./Components/Dashboard/MyProfile";
 import UserWish from "./Components/Dashboard/UserWish";
@@ -49,6 +51,14 @@ function App() {
           <Route path="review" element={<AddReview></AddReview>}></Route>
           <Route path="profile" element={<MyProfile></MyProfile>}></Route>
           <Route
+            path="manageTools"
+            element={
+              <RequireAdmin>
+                <ManageTools></ManageTools>
+              </RequireAdmin>
+            }
+          ></Route>
+          <Route
             path="allUsers"
             element={
               <RequireAdmin>
@@ -61,6 +71,14 @@ function App() {
             element={
               <RequireAdmin>
                 <UserWish></UserWish>
+              </RequireAdmin>
+            }
+          ></Route>
+          <Route
+            path="addProduct"
+            element={
+              <RequireAdmin>
+                <AddProducts></AddProducts>
               </RequireAdmin>
             }
           ></Route>

@@ -1,11 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { useAuthState } from "react-firebase-hooks/auth";
-import auth from "../../firebase.init";
 import WishTable from "./WishTable";
 
 const UserWish = () => {
   const [wish, setWish] = useState([]);
-  const [user] = useAuthState(auth);
 
   useEffect(() => {
     const url = "http://localhost:5000/wishes";
