@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useQuery } from "react-query";
 import { toast } from "react-toastify";
@@ -9,15 +9,6 @@ const MyProfile = () => {
   const [user] = useAuthState(auth);
   const email = user.email;
   console.log(email);
-
-//   const [userPro, setUserPro] = useState({});
-
-//   useEffect(() => {
-//     const url = `http://localhost:5000/users/${email}`;
-//     fetch(url)
-//       .then((res) => res.json())
-//       .then((data) => setUserPro(data));
-//   }, [email]);
 
    const { data: users, isLoading, refetch } = useQuery("users", () =>
     fetch(`http://localhost:5000/users/${email}`,{
