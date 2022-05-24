@@ -60,6 +60,7 @@ const MyProfile = () => {
         <h2>Location: {users.location}</h2>
         <h2>Phone: {users.number}</h2>
         <h2>LinkedIn Link: {users.linkIn}</h2>
+        <h2 className="mt-1">Go to LinkedIn profile <span className=" bg-blue-300 p-1 rounded-lg"><a target="_blank" href={users.linkIn}>LinkedIn</a></span></h2>
 
         <div>
           <label
