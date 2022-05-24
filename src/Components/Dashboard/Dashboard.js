@@ -34,7 +34,7 @@ const Dashboard = () => {
           </li>
           <li>
           {
-            admin && <Link to='/dashboard/wishList'>User Wish</Link>
+            admin ? <Link to='/dashboard/wishList'>User Wish</Link> : <></>
           }
           </li>
         </ul>
