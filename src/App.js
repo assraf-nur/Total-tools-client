@@ -7,6 +7,7 @@ import AllUsers from './Components/Dashboard/AllUsers';
 import Dashboard from './Components/Dashboard/Dashboard';
 import MyOrder from './Components/Dashboard/MyOrder';
 import MyProfile from './Components/Dashboard/MyProfile';
+import UserWish from './Components/Dashboard/UserWish';
 import Home from './Components/Home/Home';
 import Login from './Components/Login/Login';
 import RequireAuth from './Components/Login/RequireAuth';
@@ -43,6 +44,7 @@ function App() {
             <Route path='review' element={<AddReview></AddReview>}></Route>
             <Route path='profile' element={<MyProfile></MyProfile>}></Route>
             <Route path='allUsers' element={<AllUsers></AllUsers>}></Route>
+            <Route path='wishList' element={<UserWish></UserWish>}></Route>
           </Route>
 
 
