@@ -16,7 +16,7 @@ const ManageTool = ({ tool, refetch }) => {
     }).then((result) => {
       /* Read more about isConfirmed, isDenied below */
       if (result.isConfirmed) {
-        Swal.fire("Saved!", "", "success");
+        Swal.fire("Deleted !!", "", "success");
         const url = `http://localhost:5000/tools/${id}`;
         fetch(url, {
           method: "DELETE",
