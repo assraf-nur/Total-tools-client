@@ -5,6 +5,7 @@ import BusinessSummery from './BusinessSummery';
 import FeatureTools from './FeatureTools';
 import ReviewSection from './ReviewSection';
 import ToolsList from './ToolsList';
+import ToolsWish from './ToolsWish';
 
 
 const Home = () => {
@@ -15,6 +16,7 @@ const Home = () => {
             <BusinessSummery></BusinessSummery>
             <ReviewSection></ReviewSection>
             <FeatureTools></FeatureTools>
+            <ToolsWish></ToolsWish>
             <Footer></Footer>
         </div>
     );
