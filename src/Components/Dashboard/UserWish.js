@@ -5,7 +5,7 @@ const UserWish = () => {
   const [wish, setWish] = useState([]);
 
   useEffect(() => {
-    const url = "http://localhost:5000/wishes";
+    const url = "https://glacial-citadel-80712.herokuapp.com/wishes";
     fetch(url)
       .then((res) => res.json())
       .then((data) => setWish(data));
@@ -13,7 +13,7 @@ const UserWish = () => {
 
   return (
     <div class="overflow-x-auto">
-        <h3 className="ml-5 text-3xl py-2">User Wish Tools</h3>
+      <h3 className="ml-5 text-3xl py-2">User Wish Tools</h3>
       <table class="table w-full">
         {/* <!-- head --> */}
         <thead>
@@ -26,9 +26,9 @@ const UserWish = () => {
         </thead>
         <tbody>
           {/* <!-- row 1 --> */}
-          {
-              wish.map(w => <WishTable key={w._id} w={w}></WishTable>)
-          }
+          {wish.map((w) => (
+            <WishTable key={w._id} w={w}></WishTable>
+          ))}
         </tbody>
       </table>
     </div>

@@ -8,7 +8,7 @@ const ManageTool = ({ tool, refetch }) => {
     Swal.fire({
       imageUrl: `${img}`,
       imageHeight: 200,
-      imageAlt: 'A tall image',
+      imageAlt: "A tall image",
       title: `Do you want to delete ${name}`,
       showCancelButton: true,
       cancelButtonText: "No",
@@ -17,7 +17,7 @@ const ManageTool = ({ tool, refetch }) => {
       /* Read more about isConfirmed, isDenied below */
       if (result.isConfirmed) {
         Swal.fire("Deleted !!", "", "success");
-        const url = `http://localhost:5000/tools/${id}`;
+        const url = `https://glacial-citadel-80712.herokuapp.com/tools/${id}`;
         fetch(url, {
           method: "DELETE",
         })
@@ -29,7 +29,6 @@ const ManageTool = ({ tool, refetch }) => {
         Swal.fire("Changes are not saved", "", "info");
       }
     });
-
   };
 
   return (

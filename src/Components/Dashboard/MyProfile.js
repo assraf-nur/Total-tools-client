@@ -10,12 +10,16 @@ const MyProfile = () => {
   const email = user.email;
   console.log(email);
 
-   const { data: users, isLoading, refetch } = useQuery("users", () =>
-    fetch(`http://localhost:5000/users/${email}`,{
-        method: 'GET',
-        headers: {
-            authorization: `Bearer ${localStorage.getItem('accessToken')}`
-        }
+  const {
+    data: users,
+    isLoading,
+    refetch,
+  } = useQuery("users", () =>
+    fetch(`https://glacial-citadel-80712.herokuapp.com/users/${email}`, {
+      method: "GET",
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
     }).then((res) => res.json())
   );
 
@@ -23,7 +27,7 @@ const MyProfile = () => {
     return <Loading></Loading>;
   }
 
-  const updateUser = e =>{
+  const updateUser = (e) => {
     e.preventDefault();
 
     const education = e.target.education.value;
@@ -31,24 +35,24 @@ const MyProfile = () => {
     const number = e.target.number.value;
     const linkIn = e.target.linkIn.value;
 
-    const updateUser = {education, location, number, linkIn};
+    const updateUser = { education, location, number, linkIn };
 
-    const url = `http://localhost:5000/users/${email}`;
-        fetch(url, {
-          method: "PUT",
-          headers: {
-            "content-type": "application/json",
-          },
-          body: JSON.stringify(updateUser),
-        })
-        .then(res => res.json())
-        .then(data =>{
-            refetch();
-            console.log('success',data);
-            toast('updated successfully');
-            e.target.reset();
-        })
-  }
+    const url = `https://glacial-citadel-80712.herokuapp.com/users/${email}`;
+    fetch(url, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(updateUser),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        refetch();
+        console.log("success", data);
+        toast("updated successfully");
+        e.target.reset();
+      });
+  };
 
   return (
     <div>
@@ -60,7 +64,14 @@ const MyProfile = () => {
         <h2>Location: {users.location}</h2>
         <h2>Phone: {users.number}</h2>
         <h2>LinkedIn Link: {users.linkIn}</h2>
-        <h2 className="mt-1">Go to LinkedIn profile <span className=" bg-blue-300 p-1 rounded-lg"><a target="_blank" href={users.linkIn}>LinkedIn</a></span></h2>
+        <h2 className="mt-1">
+          Go to LinkedIn profile{" "}
+          <span className=" bg-blue-300 p-1 rounded-lg">
+            <a target="_blank" href={users.linkIn}>
+              LinkedIn
+            </a>
+          </span>
+        </h2>
 
         <div>
           <label
@@ -80,15 +91,39 @@ const MyProfile = () => {
               ✕
             </label>
             <form onSubmit={updateUser}>
-            <input type="text" name="education" placeholder="Education" class="input input-bordered w-full max-w-xs my-3" />
+              <input
+                type="text"
+                name="education"
+                placeholder="Education"
+                class="input input-bordered w-full max-w-xs my-3"
+              />
               <br />
-              <input type="text" name="location" placeholder="Location" class="input input-bordered w-full max-w-xs my-3" />
+              <input
+                type="text"
+                name="location"
+                placeholder="Location"
+                class="input input-bordered w-full max-w-xs my-3"
+              />
               <br />
-              <input type="number" name="number" placeholder="Phone Number" class="input input-bordered w-full max-w-xs my-3" />
+              <input
+                type="number"
+                name="number"
+                placeholder="Phone Number"
+                class="input input-bordered w-full max-w-xs my-3"
+              />
               <br />
-              <input type="text" name="linkIn" placeholder="LinkedIn Profile Link" class="input input-bordered w-full max-w-xs my-3" />
+              <input
+                type="text"
+                name="linkIn"
+                placeholder="LinkedIn Profile Link"
+                class="input input-bordered w-full max-w-xs my-3"
+              />
               <br />
-              <input type="submit" className="btn btn-primary text-white" value="Add info" />
+              <input
+                type="submit"
+                className="btn btn-primary text-white"
+                value="Add info"
+              />
             </form>
           </div>
         </div>

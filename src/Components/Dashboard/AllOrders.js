@@ -4,7 +4,7 @@ const AllOrders = () => {
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
-    const url = "http://localhost:5000/allOrders";
+    const url = "https://glacial-citadel-80712.herokuapp.com/allOrders";
     fetch(url)
       .then((res) => res.json())
       .then((data) => setOrders(data));
@@ -12,7 +12,7 @@ const AllOrders = () => {
 
   return (
     <div class="overflow-x-auto">
-        <h2 className="text-3xl ml-3 py-3">All Order</h2>
+      <h2 className="text-3xl ml-3 py-3">All Order</h2>
       <table class="table w-full">
         {/* <!-- head --> */}
         <thead>
@@ -27,18 +27,16 @@ const AllOrders = () => {
         </thead>
         <tbody>
           {/* <!-- row 1 --> */}
-          {
-              orders.map((order, index) => (
-                <tr>
-                    <th>{index+1}</th>
-                    <td>{order.userName}</td>
-                    <td>{order.toolName}</td>
-                    <td>{order.quantityAmount} Unit</td>
-                    <td>{order.toolPrice} $</td>
-                    <td>Blue</td>
-               </tr>
-              ))
-          }
+          {orders.map((order, index) => (
+            <tr>
+              <th>{index + 1}</th>
+              <td>{order.userName}</td>
+              <td>{order.toolName}</td>
+              <td>{order.quantityAmount} Unit</td>
+              <td>{order.toolPrice} $</td>
+              <td>Blue</td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>

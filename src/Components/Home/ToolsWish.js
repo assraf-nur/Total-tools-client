@@ -2,36 +2,34 @@ import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { toast } from "react-toastify";
 import auth from "../../firebase.init";
-import logo from '../../Images/logo.png'
+import logo from "../../Images/logo.png";
 
 const ToolsWish = () => {
+  const [user] = useAuthState(auth);
 
-    const [user] = useAuthState(auth);
+  const handleWish = (e) => {
+    e.preventDefault();
 
-    const handleWish = e =>{
-        e.preventDefault();
+    const name = e.target.name.value;
+    const price = e.target.price.value;
+    const details = e.target.details.value;
+    const userName = user.displayName;
 
-        const name = e.target.name.value;
-        const price = e.target.price.value;
-        const details = e.target.details.value;
-        const userName = user.displayName;
+    const wishList = { name, price, details, userName };
 
-        const wishList = {name, price, details, userName};
-
-        fetch('http://localhost:5000/wish',{
-            method: "POST",
-            headers: {
-                'content-type': 'application/json',
-            },
-            body: JSON.stringify(wishList),
-        })
-        .then(res => res.json())
-        .then(data => {
-            toast.success('You wish a tool');
-            e.target.reset();
-        })
-
-    }
+    fetch("https://glacial-citadel-80712.herokuapp.com/wish", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(wishList),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        toast.success("You wish a tool");
+        e.target.reset();
+      });
+  };
 
   return (
     <div className="px-12">
@@ -41,9 +39,12 @@ const ToolsWish = () => {
         <span className="uppercase font-bold text-primary text-5xl">Wish</span>{" "}
         to see in our store
       </h2>
-      <form onSubmit={handleWish} className="mt-5 rounded-2xl border-4 px-12 grid justify-center p-12">
-      <img src={logo} alt="" className="mb-8"/>
-        
+      <form
+        onSubmit={handleWish}
+        className="mt-5 rounded-2xl border-4 px-12 grid justify-center p-12"
+      >
+        <img src={logo} alt="" className="mb-8" />
+
         <input
           required
           type="text"

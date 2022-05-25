@@ -12,23 +12,22 @@ const CheckoutForm = ({ order }) => {
   const { toolPrice, toolName, userEmail } = order;
 
   useEffect(() => {
-    fetch(`http://localhost:5000/create-payment-intent`, {
-        method: 'POST',
-        headers: {
-            'content-type': 'application/json',
-            'authorization': `Bearer ${localStorage.getItem('accessToken')}`
-        },
-        body: JSON.stringify({ toolPrice })
+    fetch(`https://glacial-citadel-80712.herokuapp.com/create-payment-intent`, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
+      body: JSON.stringify({ toolPrice }),
     })
-        .then(res => res.json())
-        .then(data => {
-            console.log(data);
-            if (data?.clientSecret) {
-                setClientSecret(data.clientSecret);
-            }
-        });
-
-}, [toolPrice])
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data?.clientSecret) {
+          setClientSecret(data.clientSecret);
+        }
+      });
+  }, [toolPrice]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -65,7 +64,7 @@ const CheckoutForm = ({ order }) => {
       setCardError(intentError?.message);
     } else {
       setCardError("");
-      setTransactionId(paymentIntent.id)
+      setTransactionId(paymentIntent.id);
       console.log(paymentIntent);
       setSuccess("Your payment is completed");
     }
@@ -99,10 +98,12 @@ const CheckoutForm = ({ order }) => {
         </button>
       </form>
       {cardError && <p className="text-red-600">{cardError}</p>}
-      {success && <div>
-        <p className="text-red-600">{success}</p>
-        <p>Your Transaction Id: {transactionId} </p>
-        </div>}
+      {success && (
+        <div>
+          <p className="text-red-600">{success}</p>
+          <p>Your Transaction Id: {transactionId} </p>
+        </div>
+      )}
     </>
   );
 };

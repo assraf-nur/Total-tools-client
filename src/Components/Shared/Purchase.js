@@ -14,7 +14,7 @@ const Purchase = () => {
   let from = location.state?.from?.pathname || `/`;
 
   useEffect(() => {
-    const url = `http://localhost:5000/tools/${toolsId}`;
+    const url = `https://glacial-citadel-80712.herokuapp.com/tools/${toolsId}`;
 
     fetch(url)
       .then((res) => res.json())
@@ -26,7 +26,7 @@ const Purchase = () => {
     const phone = e.target.phone.value;
     const address = e.target.address.value;
     var quantity = e.target.quantity.value;
-    const price = (quantity * parseInt(tool.price));
+    const price = quantity * parseInt(tool.price);
 
     if (tool.moq > quantity) {
       alert("Please order more than minimum order quantity");
@@ -36,7 +36,6 @@ const Purchase = () => {
       alert("Please give order below available unit");
       return;
     }
-
 
     const order = {
       toolId: tool._id,
@@ -49,7 +48,7 @@ const Purchase = () => {
       toolPrice: price,
     };
 
-    fetch("http://localhost:5000/orders", {
+    fetch("https://glacial-citadel-80712.herokuapp.com/orders", {
       method: "POST",
       headers: {
         "content-type": "application/json",
