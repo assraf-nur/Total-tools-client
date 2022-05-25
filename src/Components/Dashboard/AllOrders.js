@@ -21,6 +21,7 @@ const AllOrders = () => {
             <th>Name</th>
             <th>Tools Name</th>
             <th>Ordered Quantity</th>
+            <th>Total Price</th>
             <th>Status</th>
           </tr>
         </thead>
@@ -33,6 +34,7 @@ const AllOrders = () => {
                     <td>{order.userName}</td>
                     <td>{order.toolName}</td>
                     <td>{order.quantityAmount} Unit</td>
+                    <td>{order.toolPrice} $</td>
                     <td>Blue</td>
                </tr>
               ))

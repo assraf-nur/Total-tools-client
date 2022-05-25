@@ -26,6 +26,7 @@ const Purchase = () => {
     const phone = e.target.phone.value;
     const address = e.target.address.value;
     var quantity = e.target.quantity.value;
+    const price = (quantity * parseInt(tool.price));
 
     if (tool.moq > quantity) {
       alert("Please order more than minimum order quantity");
@@ -36,6 +37,7 @@ const Purchase = () => {
       return;
     }
 
+
     const order = {
       toolId: tool._id,
       toolName: tool.name,
@@ -44,6 +46,7 @@ const Purchase = () => {
       userPhone: phone,
       userAddress: address,
       quantityAmount: quantity,
+      toolPrice: price,
     };
 
     fetch("http://localhost:5000/orders", {
