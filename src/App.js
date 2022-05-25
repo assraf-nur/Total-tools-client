@@ -10,6 +10,7 @@ import Dashboard from "./Components/Dashboard/Dashboard";
 import ManageTools from "./Components/Dashboard/ManageTools";
 import MyOrder from "./Components/Dashboard/MyOrder";
 import MyProfile from "./Components/Dashboard/MyProfile";
+import Payment from "./Components/Dashboard/Payment";
 import UserWish from "./Components/Dashboard/UserWish";
 import Blogs from "./Components/Home/Blogs";
 import Home from "./Components/Home/Home";
@@ -53,6 +54,7 @@ function App() {
           <Route path="orders" element={<MyOrder></MyOrder>}></Route>
           <Route path="review" element={<AddReview></AddReview>}></Route>
           <Route path="profile" element={<MyProfile></MyProfile>}></Route>
+          <Route path="payment/:id" element={<Payment></Payment>}></Route>
           <Route
             path="manageTools"
             element={
