@@ -22,11 +22,6 @@ const Dashboard = () => {
           <Link to='/dashboard/orders'>My Orders</Link>
           </li>
           <li>
-            {
-              admin ? <> </> : <Link to='/dashboard/review'>Add a Review</Link>
-            }
-          </li>
-          <li>
           <Link to='/dashboard/profile'>My Profile</Link>
           </li>
           <li>
@@ -48,6 +43,11 @@ const Dashboard = () => {
           {
             admin ? <Link to='/dashboard/addProduct'>Add Product</Link> : <> </>
           }
+          </li>
+          <li>
+            {
+              admin ? <> </> : <Link to='/dashboard/review'>Add a Review</Link>
+            }
           </li>
         </ul>
       </div>

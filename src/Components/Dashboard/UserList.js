@@ -1,7 +1,7 @@
 import React from 'react';
 import { toast } from 'react-toastify';
 
-const UserList = ({user, refetch}) => {
+const UserList = ({user}) => {
     const { _id, email, role} = user;
 
     const makeAdmin = () =>{
@@ -11,7 +11,7 @@ const UserList = ({user, refetch}) => {
         })
         .then(res => res.json())
         .then(data => {
-            refetch();
+            window.location.reload()
             toast.success("New Admin added");
         })
     }
@@ -25,7 +25,7 @@ const UserList = ({user, refetch}) => {
             })
             .then(res => res.json())
             .then(data => {
-                refetch();
+                window.location.reload()
                 toast.success("Remove user successfully")
             })
         }

@@ -1,27 +1,22 @@
-import React from "react";
-import { useQuery } from "react-query";
-import Loading from "../Shared/Loading";
+import React, { useEffect, useState } from "react";
 import UserList from "./UserList";
 
 const AllUsers = () => {
-  const { data: users, isLoading, refetch } = useQuery("users", () =>
-    fetch("http://localhost:5000/users",{
-        method: 'GET',
-        headers: {
-            authorization: `Bearer ${localStorage.getItem('accessToken')}`
-        }
-    }).then((res) => res.json())
-  );
 
-  if (isLoading) {
-    return <Loading></Loading>;
-  }
+  const [users, setUsers] = useState([]);
+
+  useEffect(()=>{
+    const url = 'http://localhost:5000/users'
+    fetch(url)
+    .then(res => res.json())
+    .then(data => setUsers(data))
+  },[])
+
 
   return (
     <div class="overflow-x-auto mt-5">
         <h2 className="ml-5 text-2xl mb-3">All User</h2>
       <table class="table w-full">
-        {/* <!-- head --> */}
         <thead>
           <tr>
             <th>Email</th>
@@ -30,9 +25,8 @@ const AllUsers = () => {
           </tr>
         </thead>
         <tbody>
-          {/* <!-- row 1 --> */}
           {
-              users.map(user => <UserList key={user._id} user={user} refetch={refetch}></UserList>)
+             users && users?.map(user => <UserList key={user._id} user={user} ></UserList>)
           }
         </tbody>
       </table>
