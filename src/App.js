@@ -11,6 +11,7 @@ import MyOrder from "./Components/Dashboard/MyOrder";
 import MyProfile from "./Components/Dashboard/MyProfile";
 import UserWish from "./Components/Dashboard/UserWish";
 import Home from "./Components/Home/Home";
+import Portfolio from "./Components/Home/Portfolio";
 import Login from "./Components/Login/Login";
 import RequireAdmin from "./Components/Login/RequireAdmin";
 import RequireAuth from "./Components/Login/RequireAuth";
@@ -83,7 +84,7 @@ function App() {
             }
           ></Route>
         </Route>
-
+        <Route path="portfolio" element={<Portfolio></Portfolio>}/>
         <Route path="signup" element={<SignUp></SignUp>}></Route>
         <Route path="*" element={<NotFound></NotFound>} />
       </Routes>
