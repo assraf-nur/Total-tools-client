@@ -32,7 +32,7 @@ const Payment = () => {
           <p>Quantity Amount: {order.quantityAmount} Unit</p>
           <div className="mt-8">
           <Elements stripe={stripePromise}>
-                <CheckoutForm />
+                <CheckoutForm order={order}/>
           </Elements>
           </div>
         </div>
