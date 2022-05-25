@@ -46,7 +46,7 @@ const Dashboard = () => {
           </li>
           <li>
           {
-            admin ? <Link to='/dashboard/allOrders'>All Orders</Link> : <> </>
+            admin ? <Link to='/dashboard/allOrders'>Manage All Orders</Link> : <> </>
           }
           </li>
           <li>
