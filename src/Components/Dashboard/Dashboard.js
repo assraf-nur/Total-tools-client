@@ -45,6 +45,11 @@ const Dashboard = () => {
           }
           </li>
           <li>
+          {
+            admin ? <Link to='/dashboard/allOrders'>All Orders</Link> : <> </>
+          }
+          </li>
+          <li>
             {
               admin ? <> </> : <Link to='/dashboard/review'>Add a Review</Link>
             }
