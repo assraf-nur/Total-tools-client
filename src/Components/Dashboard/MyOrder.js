@@ -80,6 +80,9 @@ const MyOrder = () => {
                     <button className="btn btn-xs text-white px-3">Pay</button>
                   </Link>
                 )}{" "}
+                {
+                  o.paid && <p>Shipped</p>
+                }
               </td>
 
               <td>
