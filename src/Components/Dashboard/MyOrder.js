@@ -84,7 +84,7 @@ const MyOrder = () => {
 
               <td>
                 {o.toolPrice && !o.paid && (
-                    <button onClick={()=> handleDelete(o._id)} className="btn btn-xs text-white px-3">Cancel</button>
+                    <button onClick={()=> handleDelete(o._id)} className="btn btn-xs btn-error text-white px-3">Cancel</button>
                 )}
               </td>
 
