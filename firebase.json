@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist/total-tools",
+    "public": "build",
     "ignore": [
       "firebase.json",
       "**/.*",
