@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
 import auth from "../../firebase.init";
+import Swal from "sweetalert2";
 
 const MyOrder = () => {
   const [user] = useAuthState(auth);
@@ -23,6 +24,31 @@ const MyOrder = () => {
     }
   }, [user]);
 
+  const handleDelete = (id) =>{
+    Swal.fire({
+      imageHeight: 200,
+      title: `Do you want to delete`,
+      showCancelButton: true,
+      cancelButtonText: "No",
+      confirmButtonText: "Yes",
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        Swal.fire("Deleted !!", "", "success");
+        const url = `https://glacial-citadel-80712.herokuapp.com/orders/${id}`;
+        fetch(url, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            window.location.reload();
+          });
+      } else if (result.isCanceled) {
+        Swal.fire("Changes are not saved", "", "info");
+      }
+    });
+  }
+
   return (
     <div class="overflow-x-auto mt-8">
       <h2 className="ml-5 text-2xl mb-3">Orders</h2>
@@ -35,7 +61,8 @@ const MyOrder = () => {
             <th>Tools Name</th>
             <th>Quantity</th>
             <th>Total Price</th>
-            <th>status</th>
+            <th>Payment</th>
+            <th>Cancel</th>
           </tr>
         </thead>
         <tbody>
@@ -54,7 +81,13 @@ const MyOrder = () => {
                   </Link>
                 )}{" "}
               </td>
-              <td>{o.toolPrice && o.paid && <p>Pending</p>} </td>
+
+              <td>
+                {o.toolPrice && !o.paid && (
+                    <button onClick={()=> handleDelete(o._id)} className="btn btn-xs text-white px-3">Cancel</button>
+                )}
+              </td>
+
             </tr>
           ))}
         </tbody>
