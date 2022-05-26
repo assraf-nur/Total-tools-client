@@ -8,8 +8,8 @@ const FeatureTools = () => {
       <div className="mt-12">
         <Iframe
           url="https://www.youtube.com/embed/T47dJDzxDF0"
-          width="450px"
-          height="450px"
+          width="360px"
+          height="360px"
           id="myId"
           className="rounded-2xl"
           display="initial"
